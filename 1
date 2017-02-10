@@ -1,0 +1,93 @@
+Sub macro_1()
+Range("A2:C4").Value = "ejemplo"
+Range("d5:d5").Value = 10
+Range("c6", "e6").Value = "ejempo 1"
+
+End Sub
+
+#######################################################
+Sub macro_2()
+Dim ramo As String
+Dim frecuencia As Integer
+Dim severidad As Double
+
+
+frecuencia = 6500
+ramo = "Incendio"
+severidad = 5300225.5
+
+
+'concatenando valores &
+Range("b2").Value = " informe para el ramo de:" & ramo
+
+Range("b3").Value = "Numero de siniestros para este año fue de : " & frecuencia
+
+Range("b4").Value = "la severiddad de los siniestros fue de: " & severidad
+
+End Sub
+
+#################################################
+
+Sub macro_3()
+Dim ramo As String
+Dim frecuencia As Integer
+Dim severidad As Double
+
+
+frecuencia = 6500
+ramo = "Incendio"
+severidad = 5300225.5
+
+
+'concatenando valores &
+Range("b7").Value = " Informe para el ramo de:"
+Range("f7").Value = ramo
+Range("b8").Value = "Numero de siniestros para este año fue de : "
+Range("f8").Value = frecuencia
+Range("b9").Value = "la severiddad de los siniestros fue de: "
+Range("f9").Value = severidad
+S1 = severidad * 1.00035
+Range("b10").Value = "severidad ajustada"
+Range("f10").Value = S1
+Range("b11").Value = "numero de polizas estimadas para el siguiente año:"
+Range("f11").Value = Application.WorksheetFunction.RandBetween(3500, 4600)
+
+End Sub
+
+
+#############################################
+
+Sub macro_valor_futuro()
+Dim interes As Double
+Dim tiempo As Integer
+
+interes = 0.06
+tiempo1 = 1
+tiempo2 = 2
+tiempo3 = 3
+monto = Application.WorksheetFunction.RandBetween(20000, 500000)
+
+Range("C2").Value = "Monto:"
+Range("E2").Value = monto
+Range("C3").Value = "Interes:"
+Range("E3").Value = interes
+Range("b5").Value = "Altiempo"
+Range("C6").Value = tiempo1
+Range("C7").Value = tiempo2
+Range("C8").Value = tiempo3
+Total1 = ((1 + interes) ^ tiempo1) * monto
+Total2 = ((1 + interes) ^ tiempo2) * monto
+Total3 = ((1 + interes) ^ tiempo3) * monto
+Range("E5").Value = "SALDOS"
+Range("F6").Value = Total1
+Range("F7").Value = Total2
+Range("F8").Value = Total3
+
+End Sub
+
+#################################################
+
+
+Sub macro_calculadora()
+Dim NUMERO As Double
+End Sub
