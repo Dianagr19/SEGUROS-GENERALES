@@ -1,0 +1,173 @@
+Sub ejemplo()
+
+Range("b10").Value = "Informe de siniestros"
+Range("b11").Value = "Informe para el año 2016"
+
+tarifa = " Tarifa e " & Range("b11").Value
+Range("b12").Value = tarifa
+Range("b10").Borders.Color = RGB(68, 172, 204)
+Range("b11").Interior.Color = RGB(68, 150, 1120)
+Range("b12").Select
+Selection.Font.Bold = True '.Bold para margen
+Selection.Font.Italic = True
+Selection.Font.Name = "Century Gothic"
+Selection.Font.Size = 24   'todo lo de fuente inicia con .Font
+
+
+End Sub
+
+Sub ejemplo2()
+'Para emplear los rangos de manera más precisa es adecuado indicar
+'el nombre de la hoja con la que se va a iniciar a trabajar
+
+Worksheets("Hoja1").Range("a12").Value = "Informe1"
+Worksheets("Hoja2").Range("a12").Value = "Informe hoja 2"
+Worksheets("Hoja3").Range("a12").Value = "Informe hoja 3"
+
+End Sub
+
+Sub cajas_texto()
+MsgBox ("Formulario de suscripción")
+MsgBox ("Introduce la información solicitada")
+infol = InputBox("Introduzca el ramo del negocio")
+
+End Sub
+
+Sub ejemplo3()
+MsgBox ("Introduce la información solicitada")
+cuenta = InputBox("Introdusca el nombre de la cuenta")
+agente = InputBox("Introdusca el nombre del agente")
+ramo = InputBox("Introdusca el nombre del ramo", "Dato")
+
+End Sub
+
+Sub practica()
+MsgBox ("Introduce la información solicitada")
+cuenta = InputBox("Introdusca el nombre de la cuenta")
+agente = InputBox("Introdusca el nombre del agente")
+ramo = InputBox("Introdusca el nombre del ramo", "Dato")
+poliza = InputBox("Introdusca la póliza")
+
+Worksheets("Datos").Range("b2").Value = "Hoja Datos"
+Range("a3").Value = "Cuenta"
+Range("a4").Value = "Agente"
+Range("a5").Value = "Ramo"
+Range("a6").Value = "Póliza"
+
+
+Worksheets("Datos").Range("b3").Value = cuenta
+Worksheets("Datos").Range("b4").Value = agente
+Worksheets("Datos").Range("b5").Value = ramo
+Worksheets("Datos").Range("b6").Value = poliza
+End Sub
+
+Sub practica_informe()
+MsgBox ("Introduce la información solicitada")
+ramo = InputBox("Introdusca el nombre de la ramo")
+poliza = InputBox("Introdusca número de póliza")
+siniestros = InputBox("Introdusca número de siniestros", "Dato")
+monto = InputBox("Introdusca monto")
+
+Worksheets("Informe").Range("b2").Value = "Hoja Informes"
+Range("a3").Value = "ramo"
+Range("a4").Value = "poliza"
+Range("a5").Value = "siniestros"
+Range("a6").Value = "monto"
+
+
+Worksheets("Informe").Range("b3").Value = ramo
+Worksheets("Informe").Range("b4").Value = poliza
+Worksheets("Informe").Range("b5").Value = siniestros
+Worksheets("Informe").Range("b6").Value = monto
+End Sub
+
+Sub practica_resultados()
+Worksheets("Informe").Range("b2").Value = "Hoja Informes"
+Range("a3").Value = "resultados"
+Range("a4").Value = "costo medio"
+End Sub
+
+Sub practica_total()
+MsgBox ("Introduce la información solicitada")
+cuenta = InputBox("Introdusca el nombre de la cuenta")
+agente = InputBox("Introdusca el nombre del agente")
+ramo = InputBox("Introdusca el nombre del ramo", "Dato")
+poliza = InputBox("Introdusca la póliza")
+siniestros = InputBox("Introdusca número de siniestros", "Dato")
+monto = InputBox("Introdusca monto")
+
+Worksheets("Datos").Range("b2").Value = "Hoja Datos"
+Worksheets("Datos").Range("a3").Value = "Cuenta"
+Worksheets("Datos").Range("a4").Value = "Agente"
+Worksheets("Datos").Range("a5").Value = "Ramo"
+Worksheets("Datos").Range("a6").Value = "Póliza"
+
+Worksheets("Informe").Range("b2").Value = "Hoja Informes"
+Worksheets("Informe").Range("a3").Value = "ramo"
+Worksheets("Informe").Range("a4").Value = "poliza"
+Worksheets("Informe").Range("a5").Value = "siniestros"
+Worksheets("Informe").Range("a6").Value = "monto"
+
+Worksheets("Resultados").Range("b2").Value = "Hoja Resultados"
+Worksheets("Resultados").Range("a3").Value = "resultados"
+Worksheets("Resultados").Range("a4").Value = "costo medio"
+
+
+Worksheets("Datos").Range("b3").Value = cuenta
+Worksheets("Datos").Range("b4").Value = agente
+Worksheets("Datos").Range("b5").Value = ramo
+Worksheets("Datos").Range("b6").Value = poliza
+
+Worksheets("Informe").Range("b3").Value = ramo
+Worksheets("Informe").Range("b4").Value = poliza
+Worksheets("Informe").Range("b5").Value = siniestros
+Worksheets("Informe").Range("b6").Value = monto
+
+res = monto / siniestros
+Worksheets("Resultados").Range("b4").Value = res
+End Sub
+
+Sub datos()
+Worksheets("Datos").Select
+MsgBox ("Introduzca la información solicitada")
+cuenta = InputBox("Introdusca el nombre de la cuenta")
+agente = InputBox("Introdusca el nombre del agente")
+ramo = InputBox("Introdusca el nombre del ramo", "Datos")
+poliza = InputBox("Introdusca la póliza", "Datos")
+Range("a3").Value = "cuenta"
+Range("a4").Value = "agente"
+Range("a5").Value = "ramo"
+Range("a6").Value = "poliza"
+Range("B3").Value = cuenta
+Range("B4").Value = agente
+Range("B5").Value = ramo
+Range("B6").Value = poliza
+
+Worksheets("Informe").Select
+Range("a3").Value = "ramo"
+Range("a6").Value = "poliza"
+Range("a5").Value = "siniestros"
+Range("a4").Value = "monto de los siniestros"
+Range("B3").Value = ramo
+Range("B4").Value = poliza
+Range("B5").Value = Application.WorksheetsFunction.Range(0, 1000)
+Range("B6").Value = Application.WorksheetsFunction.Range(0, 1000)
+
+
+End Sub
+
+Sub ejemplo4_CicloFOR()
+Worksheets("Hoja4").Activate
+n = 6
+'la estructura de un ciclo for se compone de tres secciones
+'La primera de ellas va a  especificar los limites
+'la segunda las acciones que se realizarán
+'la tercera requiere de terminar la sentencia
+Range("B2").Cells(1, 1).Value = "Lsita de Valores"
+For i = 1 To n Step 1 ' step de cuanto en cuanto va avanzando
+Range("B2").Cells(1 + i, 1).Value = i
+Next i ' el for siempre lleva un next i
+Range("a2").Cells(2 + n, 1).Value = "la suma de los valores va a ser"
+datos = Range(Cells(1 + i, 2), Cells(1 + n, 2))
+
+End Sub
