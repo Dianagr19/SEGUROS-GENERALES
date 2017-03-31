@@ -108,4 +108,104 @@ polizas<- seq(0:80)
 polizas
 n=80
 p=.20
-pgm<-dbinom
+pgm<-dbinom(polizas,n,prob=p)
+pgm
+plot(polizas,pgm,type="1", ylab="Probabilidad de siniestros"
+points(polizas, pgm, col="red")
+
+"Distribución acumulada P(X<=x)
+FxGM<- pbinom(polizas, n, prob=p)
+FxGM
+media_gm=n*p
+media_gm
+varianza_gm=n*p*(1-p)
+varianza_gm
+desvest_gm=varianza^.5
+desvest_gm
+#Obtenga el valor de E[(x^2)-2x]
+val_esp<- sum(((polizas^2)-2*polizas)*pgm)
+val_esp
+# Percentiles
+gm_per<- seq(0,1, by=0.05)
+gm_per
+percentil70<- gbinom(0.70, n, prob=p)
+percentil70
+percentiles_gm<-qbinom(gm_per, n, prob=p)
+percentiles_gm
+informe_gm_percentiles<- cbind(gm_per,percentiles_gm)
+informe_gm_percentiles
+#Calcular la probabilidad de que tengamos cinco siniestros
+probgm_1<- dbinom(5,n,prob=p)
+probgm_1
+#probabilidad de tener menos de cuatro
+probgm_2<- pbinom(4,n,prob=p)
+probgm_2
+#Calcular la probabilidad mas de 1 y menor a 8
+probgm_3<- pbinom(7,n,prob=p)-pbinom(10000,n,prob=p)
+probgm_3
+
+#simular valores con distribucion binomial, enteros
+simulados_gm<-rbinom(10000,n,prob=p)
+simulados_gm
+min(simulados_gm)
+max(simulados_gm)
+hist(simulados_gm)
+media_gmsim<-mean(simulados_gm)
+media_gmsim
+varianza_gmsim<-var(simulados_gm)
+varianza_gmsim
+
+
+
+##########################################
+#El banco "A" ofrece prestamos educativos a estudiantes de la ciudad de Nueva York 
+#la tasa de incumplimiento es de 45, y la probabilidad de que sean a nivel posgrado
+#es de un 32% y licenciatura 25%
+#Calular probabilidades, distribución acumulada, percentiles, media, varianza, desvest
+#Valor esperado E[2x+x^2]
+#Probabilidades P[x<=5], P[7<=x<=11], P[x<=7] U P[x>=3] para ambos casos
+#Histogramas
+Realizar las simulaciones para ambos casos
+Comparar que tan similares son a la distribución original
+
+A<- seq(0:45)
+A
+n=45
+p=.32
+pgm<-dpois(A,p)
+pgm
+plot(A,pgm,type="1", ylab="Probabilidad de incumplimiento posgrado"
+points(a, pgm, col="red")
+
+"Distribución acumulada P(X<=x)
+FxGM<- p(a,p)
+FxGM
+media_gm=n
+media_gm
+varianza_gm=n
+varianza_gm
+desvest_gm=varianza^.5
+desvest_gm
+#Obtenga el valor de E[(x^2)-2x]
+val_esp<- sum(((A^2)-2*A)*pgm)
+val_esp
+# Percentiles
+gm_per<- seq(0,1, by=0.05)
+gm_per
+percentil70<- gpois(0.70,p)
+percentil70
+percentiles_gm<-qpois(gm_per,p)
+percentiles_gm
+informe_gm_percentiles<- cbind(gm_per,percentiles_gm)
+informe_gm_percentiles
+#Calcular la probabilidad de que tengamos cinco siniestros
+probgm_1<- dbinom(5,n,prob=p)
+probgm_1
+#probabilidad de tener menos de cuatro
+probgm_2<- pbinom(4,n,prob=p)
+probgm_2
+#Calcular la probabilidad mas de 1 y menor a 8
+probgm_3<- pbinom(7,n,prob=p)-pbinom(10000,n,prob=p)
+probgm_3
+
+
